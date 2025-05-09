@@ -13,6 +13,10 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 WORKDIR /app
 
+# Create temp directory with proper permissions
+RUN mkdir -p /tmp/backups && \
+    chown -R appuser:appgroup /tmp/backups
+
 COPY backup.sh /app/
 RUN chmod +x /app/backup.sh && \
     chown -R appuser:appgroup /app

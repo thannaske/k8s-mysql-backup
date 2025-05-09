@@ -15,6 +15,7 @@ WORKDIR /app
 
 # Create temp directory with proper permissions
 RUN mkdir -p /tmp/backups && \
+    chmod 775 /tmp/backups && \
     chown -R appuser:appgroup /tmp/backups
 
 COPY backup.sh /app/

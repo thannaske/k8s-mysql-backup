@@ -72,7 +72,7 @@ fi
 
 # Configure s3cmd
 echo "Configuring S3 client..."
-cat > ~/.s3cfg << EOF
+cat > $TEMP_DIR/.s3cfg << EOF
 host_base = $S3_HOST
 host_bucket = $S3_HOST/$S3_BUCKET
 access_key = $S3_ACCESS_KEY
@@ -88,7 +88,7 @@ fi
 S3_DEST="$S3_DEST/$FINAL_FILENAME"
 
 echo "Uploading backup to $S3_DEST..."
-s3cmd put "$FINAL_FILENAME" "$S3_DEST"
+s3cmd -c $TEMP_DIR/.s3cfg put "$FINAL_FILENAME" "$S3_DEST"
 echo "Upload completed successfully"
 
 # Cleanup

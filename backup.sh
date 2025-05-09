@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Use dedicated temp directory with proper permissions
+TEMP_DIR="/tmp/backups"
+cd "$TEMP_DIR"
+
 # Default parameters for mysqldump (non-locking priority)
 DEFAULT_MYSQLDUMP_PARAMS="--single-transaction --quick --no-tablespaces --skip-lock-tables --skip-add-locks --set-gtid-purged=OFF"
 

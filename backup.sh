@@ -61,7 +61,7 @@ fi
 if [ "$ENCRYPTION" = "age" ]; then
   echo "Encrypting backup file..."
   if [ -n "$ENCRYPTION_KEY" ]; then
-    echo "$ENCRYPTION_KEY" | age -p -o "${FINAL_FILENAME}.age" "$FINAL_FILENAME"
+    echo "$ENCRYPTION_KEY" | age -R - -o "${FINAL_FILENAME}.age" "$FINAL_FILENAME"
   else
     age -R "$ENCRYPTION_FILE" -o "${FINAL_FILENAME}.age" "$FINAL_FILENAME"
   fi

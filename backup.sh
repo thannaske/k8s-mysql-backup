@@ -6,7 +6,7 @@ TEMP_DIR="/tmp/backups"
 cd "$TEMP_DIR"
 
 # Default parameters for mysqldump (non-locking priority)
-DEFAULT_MYSQLDUMP_PARAMS="--single-transaction --quick --no-tablespaces --skip-lock-tables --skip-add-locks --set-gtid-purged=OFF"
+DEFAULT_MYSQLDUMP_PARAMS="--single-transaction --quick --no-tablespaces --skip-lock-tables --skip-add-locks"
 
 # Generate timestamp for filename
 TIMESTAMP=$(date +%Y%m%d%H%M%S)
